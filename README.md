@@ -1,4 +1,4 @@
-# Fotsy Sass Bem — mixins for writing BEM code for Sass.
+# Fotsy Sass Bem — mixins for easily writing BEM selector in Sass/Scss - Mixin pour ecrire facilement des sélecteurs BEM en Sass/Scss.
 
 
 * Note: Don't work with libSass and Sass < 3.4.
