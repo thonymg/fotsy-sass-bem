@@ -1,0 +1,85 @@
+@mixin e($element, $root: true) {
+	$parent: #{&};
+	$sep: "__";
+
+	//- Detecte la présence de "__" (=> element)
+	$index-ele: str-index($parent, $sep);
+	
+	//- Detecte la présence de " " (=> parent)
+	$index-parent-direct: str-index($parent, ' ');
+
+	//- Si le contexte parent n'est pas utilisé dans l'imbriquation
+	@if $root == true {
+	  
+	  // Si l'element possède un parent direct on l'utilise
+		@if $index-parent-direct != null {
+			@at-root (with: media) {
+				// Sépare $parent ("block") et le stock dans une variable
+				$is-parent: str-slice($parent, ($index-parent-direct));
+				//- compose : $parent + "__" + $element comme selecteur
+				#{$is-parent}#{$sep+$element} {
+					@content;
+
+				}
+			}
+		} 
+		//- S'il y a d'autres éléments avant lui, on les supprime.
+		@else if $index-ele != null {
+			@at-root (with: media) {
+				// Sépare $parent ("block") et le stock
+				$is-parent: str-slice($parent, 0, ($index-ele - 1));
+				//- compose : $parent + "__" + $element comme selecteur
+				#{$is-parent}#{$sep+$element} {
+					@content;
+				}
+			}
+		} 
+		// Sinon on fait au plus simple 
+		@else {
+			@at-root {
+				#{&}__#{$element} {
+					@content;
+				}
+			}
+		}
+	}
+	//- Si le contexte parent est utilisé dans l'imbriquation
+	@else if $root == false {
+	//- on prend tous les parrents 
+		&__#{$element} {
+			@content;
+		}
+	}
+	@else {
+		@warn "L'argument doit être true ou false";
+	}
+
+}
+
+@mixin m( $modifier) {
+	$parent: #{&};
+	$sep: '--';
+	
+	//- Detecte la présence de "--"(=>modifier)
+	$index-mod: str-index($parent, $sep);
+  
+  //- S'il y a déjà un modifier
+	@if $index-mod != null {
+
+		@at-root (with: media) {
+			// Sépare $parent ("block") et le stock dans une varibale
+			$is-parent: str-slice($parent, 0, ($index-mod - 1));
+
+			//- Ajoute $parent + "--" + $modifier comme selecteur
+			#{$is-parent}#{$sep+$modifier} {
+				@content;
+			}
+		}
+	} @else {
+		@at-root {
+			#{&}--#{$modifier} {
+				@content;
+			}
+		}
+	}
+}
