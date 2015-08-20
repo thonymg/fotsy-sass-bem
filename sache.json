@@ -1,6 +1,6 @@
 {
   "name": "Fotsy Sass Bem",
-  "description": "Description of project",
+  "description": "mixins for easily writing BEM selector in Sass/Scss - Mixin pour ecrire facilement des sélecteurs BEM en Sass/Scss.",
   "tags": ["Scss", "BEM", "Selector", "resposive"],
   "author": "thonyMg",
   "docs": "https://github.com/thonymg/fotsy-sass-bem"
