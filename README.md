@@ -360,7 +360,7 @@
 
     - - -
 ### my other project
-my library for responsive typography [soratra-responsive](https://github.com/thonymg/fotsy-sass-bem)
+my library for responsive typography [soratra-responsive](https://github.com/thonymg/soratra-responsive)
 
 
 more mixins soon !!!!
