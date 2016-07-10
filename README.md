@@ -359,6 +359,9 @@
     ```
 
     - - -
+### my other project
+my library for responsive typography [soratra-responsive](https://github.com/thonymg/fotsy-sass-bem)
+
 
 more mixins soon !!!!
 
