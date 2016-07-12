@@ -4,6 +4,7 @@
 
 * Note: Don't work with libSass and Sass < 3.4.
 
+[DEMO](http://www.sassmeister.com/gist/e74e301338e42d567dcc0d79963f9385)
 ## Install & Use
 
 1. Clone `fotsy-sass-bem` somewhere to your project:
